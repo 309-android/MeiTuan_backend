@@ -20,7 +20,7 @@ public class StoreDO implements Serializable {
 
     // 店铺id
     @TableId(type = IdType.AUTO)//指明表的id
-    private int id;
+    private Integer id;
 
     // 店铺名字
     @TableField("store_name")
