@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间 绑定一个对应的dao/Mapper接口-->
+<mapper namespace="com.meituan.mapper.OrderMapper">
+
+    <!--结果集映射-->
+    <resultMap id="OrderMap" type="OrderDO">
+        <!--Column数据库中的字段 property实体类中的属性-->
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="food_id" property="foodId"/>
+        <result column="store_id" property="storeId"/>
+        <result column="order_amount" property="orderAmount"/>
+        <result column="status" property="status"/>
+        <result column="code" property="code"/>
+        <result column="order_time" property="orderTime"/>
+    </resultMap>
+
+<!--    <select id="queryByUserId" resultMap="OrderMap" resultType="list">-->
+<!--        select * from orders a,orders b where a.code = b.code and a.user_id = #{id}-->
+<!--    </select>-->
+
+</mapper>
