@@ -59,6 +59,4 @@ public class OrderDO implements Serializable {
     @TableField(exist = false)
     private FoodDO foodDO;
 
-    // 订单店铺图
-    private String storeImg;
 }
