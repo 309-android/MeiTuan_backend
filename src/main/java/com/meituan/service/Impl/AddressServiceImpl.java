@@ -13,6 +13,7 @@ import com.meituan.service.FoodService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -69,5 +70,28 @@ public class AddressServiceImpl implements AddressService {
         }
 
         return null;
+    }
+
+    /**
+     * 修改默认地址
+     */
+    @Override
+    public String updateDefaultAddress(AddressDO addressDO) {
+        if (addressDO != null){
+            // 与此用户有关联的所有地址
+            List<AddressDO> addressDOS = addressMapper.returnAllByUserId(addressDO.getUserId());
+            for (AddressDO address : addressDOS) {
+                address.setIsDefault("0");
+                if (addressDO.getId() == address.getId()){
+                    address.setIsDefault("1");
+                }
+            }
+            // 更新
+            for (AddressDO address : addressDOS) {
+                addressMapper.updateById(address);
+            }
+            return "success";
+        }
+        return "error";
     }
 }

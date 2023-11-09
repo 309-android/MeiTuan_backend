@@ -6,10 +6,7 @@ import com.meituan.model.VO.address.UserAddAddressReqVO;
 import com.meituan.service.AddressService;
 import com.meituan.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,11 @@ public class AddressController {
     @PostMapping("/getAll")
     public List<AddressDO> getAll(String phoneNumber){
         return addressService.getAll(phoneNumber);
+    }
+
+    @PostMapping("/setDefault")
+    public String updateDefaultAddress(@RequestBody AddressDO addressDO){
+        return addressService.updateDefaultAddress(addressDO);
     }
 
 }

@@ -31,4 +31,24 @@ public class FoodServiceImpl implements FoodService {
     public List<FoodDO> getAllFood() {
          return foodMapper.selectList(null);
     }
+
+    /**
+     * 根据店铺id查询
+     * @param storeId
+     * @return
+     */
+    @Override
+    public List<FoodDO> getByStoreId(String storeId) {
+        return foodMapper.getByStoreId(storeId);
+    }
+
+    /**
+     * 根据分类id查询
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public List<FoodDO> getByCategoryId(String categoryId) {
+        return foodMapper.getByCategoryId(categoryId);
+    }
 }

@@ -18,12 +18,22 @@ public class StoreServiceImpl implements StoreService {
     private StoreMapper storeMapper;
 
     /**
-     * 查询所有店铺
+     * 查询所有店铺  若有分类则分类查
      * @return
      */
     @Override
-    public List<StoreDO> getAll() {
-        List<StoreDO> storeDOS = storeMapper.selectList(null);
+    public List<StoreDO> get(String storeCategory) {
+        List<StoreDO> storeDOS = storeMapper.getByStoreCategory(storeCategory);
         return storeDOS;
+    }
+
+    /**
+     * 根据店铺id查询店铺
+     * @param storeId
+     * @return
+     */
+    @Override
+    public StoreDO getById(String storeId) {
+        return storeMapper.selectById(storeId);
     }
 }

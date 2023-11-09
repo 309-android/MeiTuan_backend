@@ -13,4 +13,18 @@ public interface FoodService {
      * @return
      */
     List<FoodDO> getAllFood();
+
+    /**
+     * 根据店铺id查找
+     * @param storeId
+     * @return
+     */
+    List<FoodDO> getByStoreId(String storeId);
+
+    /**
+     * 根据分类id查找
+     * @param storeId
+     * @return
+     */
+    List<FoodDO> getByCategoryId(String categoryId);
 }

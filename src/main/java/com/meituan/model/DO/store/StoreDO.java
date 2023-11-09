@@ -52,4 +52,11 @@ public class StoreDO implements Serializable {
     // 店铺评价
     private String comment;
 
+    // 店铺类型
+    @TableField("store_category")
+    private String storeCategory;
+
+    // 店铺简介
+    private String summary;
+
 }

@@ -19,9 +19,14 @@ public class StoreController {
      * 获取全部店铺
      * @return
      */
-    @GetMapping("/getAll")
-    public List<StoreDO> getAll(){
-        return storeService.getAll();
+    @PostMapping("/get")
+    public List<StoreDO> get(@RequestParam String storeCategory){
+        return storeService.get(storeCategory);
+    }
+
+    @PostMapping("/getById")
+    public StoreDO getById(@RequestParam String storeId){
+        return storeService.getById(storeId);
     }
 
 }

@@ -24,6 +24,9 @@ public class FoodDO implements Serializable {
     @TableField("store_id")
     private Integer storeId;
 
+    @TableField("category_id")
+    private Integer CategoryId;
+
     // 食物名字
     @TableField("food_name")
     private String foodName;
@@ -35,4 +38,8 @@ public class FoodDO implements Serializable {
     // 食物价格
     @TableField("food_amount")
     private String foodAmount;
+
+    @TableField("month_sale")
+    private String monthSale;
+
 }
