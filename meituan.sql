@@ -11,7 +11,7 @@
  Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 08/11/2023 12:01:28
+ Date: 09/11/2023 18:53:13
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `address`  (
   `is_default` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `create_time` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of address
@@ -43,12 +43,32 @@ INSERT INTO `address` VALUES (3, 2, '丁真', '0', '12345548999', '浙江工业�
 INSERT INTO `address` VALUES (4, 2, '丁真珍珠', '1', '12345678999', '临安公园', '家', '1', '2023-11-07 14:43:08');
 
 -- ----------------------------
+-- Table structure for category
+-- ----------------------------
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category`  (
+  `id` int NOT NULL,
+  `store_id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of category
+-- ----------------------------
+INSERT INTO `category` VALUES (1, 4, '奶茶');
+INSERT INTO `category` VALUES (2, 4, '果茶');
+INSERT INTO `category` VALUES (3, 4, '招牌');
+INSERT INTO `category` VALUES (4, 2, '汉堡');
+
+-- ----------------------------
 -- Table structure for food
 -- ----------------------------
 DROP TABLE IF EXISTS `food`;
 CREATE TABLE `food`  (
   `id` int NOT NULL COMMENT '食物id',
   `store_id` int NOT NULL COMMENT '店铺id',
+  `category_id` int NULL DEFAULT NULL COMMENT '分类',
   `food_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '食物名字',
   `food_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '食物图片',
   `food_amount` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '食物价格',
@@ -59,10 +79,16 @@ CREATE TABLE `food`  (
 -- ----------------------------
 -- Records of food
 -- ----------------------------
-INSERT INTO `food` VALUES (1, 4, '奥利奥奶茶', 'http://10.0.2.2:9000/meituan/foodtest2.png', '14', '100');
-INSERT INTO `food` VALUES (2, 4, '珍珠奶茶', 'http://10.0.2.2:9000/meituan/foodtest1.png', '10', '120');
-INSERT INTO `food` VALUES (3, 2, '藤椒鸡腿汉堡', 'http://10.0.2.2:9000/meituan/foodtest3.png', '14', '200');
-INSERT INTO `food` VALUES (4, 2, '多汁牛肉中国堡', 'http://10.0.2.2:9000/meituan/foodtest4.png', '18', '80');
+INSERT INTO `food` VALUES (1, 4, 3, '奥利奥奶茶', 'http://10.0.2.2:9000/meituan/foodtest2.png', '14', '100');
+INSERT INTO `food` VALUES (2, 4, 3, '珍珠奶茶', 'http://10.0.2.2:9000/meituan/foodtest1.png', '10', '120');
+INSERT INTO `food` VALUES (3, 2, 4, '藤椒鸡腿汉堡', 'http://10.0.2.2:9000/meituan/foodtest3.png', '14', '200');
+INSERT INTO `food` VALUES (4, 2, 4, '多汁牛肉中国堡', 'http://10.0.2.2:9000/meituan/foodtest4.png', '18', '80');
+INSERT INTO `food` VALUES (5, 4, 2, '珍珠奶茶', 'http://10.0.2.2:9000/meituan/foodtest1.png', '10', '120');
+INSERT INTO `food` VALUES (6, 4, 2, '珍珠奶茶', 'http://10.0.2.2:9000/meituan/foodtest1.png', '10', '120');
+INSERT INTO `food` VALUES (7, 4, 1, '珍珠奶茶', 'http://10.0.2.2:9000/meituan/foodtest1.png', '10', '120');
+INSERT INTO `food` VALUES (8, 4, 1, '珍珠奶茶', 'http://10.0.2.2:9000/meituan/foodtest1.png', '10', '120');
+INSERT INTO `food` VALUES (9, 4, 1, '珍珠奶茶', 'http://10.0.2.2:9000/meituan/foodtest1.png', '10', '120');
+INSERT INTO `food` VALUES (10, 4, 1, '珍珠奶茶', 'http://10.0.2.2:9000/meituan/foodtest1.png', '10', '120');
 
 -- ----------------------------
 -- Table structure for orders
@@ -108,7 +134,7 @@ CREATE TABLE `store`  (
   `store_category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '店铺类型',
   `summary` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '店铺简介',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of store
@@ -116,7 +142,7 @@ CREATE TABLE `store`  (
 INSERT INTO `store` VALUES (1, '瑞幸咖啡', 'http://10.0.2.2:9000/meituan/test.png', '4.7', '1000', '25', '20', '5', '难喝啊', '2', '【开票相关】请用订单手机号登录瑞幸咖啡小程序开具发票。\n');
 INSERT INTO `store` VALUES (2, '塔斯汀·中国汉堡', 'http://10.0.2.2:9000/meituan/test1.png', '4.6', '2000', '25', '20', '0', '不愧是中国汉堡', '1', '中国汉堡');
 INSERT INTO `store` VALUES (3, '小菜园新徽菜', 'http://10.0.2.2:9000/meituan/test2.png', '4.9', '1000', '33', '25', '4', '近期1000人下单', '1', '欢迎来到小菜园');
-INSERT INTO `store` VALUES (4, '茶百道', 'http://10.0.2.2:9000/meituan/test3.png', '4.9', '1000', '14', '16', '9', '大众点评高分店铺', '2', '茶百道');
+INSERT INTO `store` VALUES (4, '茶百道', 'http://10.0.2.2:9000/meituan/test3.png', '4.9', '1000', '14', '16', '9', '大众点评高分店铺', '2', '茶百道「现蒸芋头系列」升级回归，精选优质芋头，每日现蒸手捣...\n');
 INSERT INTO `store` VALUES (5, '麦啃基', 'http://10.0.2.2:9000/meituan/test1.png', '5.0', '100', '15', '15', '3', '就是好吃', '1', NULL);
 INSERT INTO `store` VALUES (6, '永辉超市', 'http://10.0.2.2:9000/meituan/test2.png', '4.8', '500', '45', '25', '6', '很新鲜', '3', NULL);
 INSERT INTO `store` VALUES (7, '丰鲜水果', 'http://10.0.2.2:9000/meituan/test3.png', '4.7', '500', '25', '20', '5', '果子很好', '4', NULL);
@@ -130,7 +156,7 @@ CREATE TABLE `user`  (
   `phone_number` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '手机号',
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '密码',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
