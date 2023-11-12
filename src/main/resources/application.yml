@@ -20,7 +20,7 @@ mybatis-plus:
 #    db-config:
 #      id-type: ASSIGN_ID
 minio:
-  endpoint: http://127.0.0.1:9000
-  accessKey: YoungZz1k
+  endpoint: http://47.111.162.181:9000
+  accessKey: young
   secretKey: 907175262
   bucketName: meituan
