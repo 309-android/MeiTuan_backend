@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: 7070
 spring:
   application:
     name: MeiTuan_backend
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://172.17.0.3:3306/meituan?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      url: jdbc:mysql://172.17.0.1:3306/meituan?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: 907175262
 mybatis-plus:
