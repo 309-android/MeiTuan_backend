@@ -1,26 +1,3 @@
-server:
-  port: 7070
 spring:
-  application:
-    name: MeiTuan_backend
-  datasource:
-    druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://172.17.0.1:3306/meituan?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-      username: root
-      password: 907175262
-mybatis-plus:
-  configuration:
-    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
-    map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.meituan.model
-#  global-config:
-#    db-config:
-#      id-type: ASSIGN_ID
-minio:
-  endpoint: http://47.111.162.181:9000
-  accessKey: young
-  secretKey: 907175262
-  bucketName: meituan
+  profiles:
+    active: dev
