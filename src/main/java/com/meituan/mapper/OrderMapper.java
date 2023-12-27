@@ -1,14 +1,9 @@
 package com.meituan.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.meituan.model.DO.order.OrderDO;
-import com.meituan.model.DO.store.StoreDO;
+import com.meituan.model.Do.order.OrderDO;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.core.annotation.Order;
 
 import java.util.List;
 

@@ -3,12 +3,11 @@ package com.meituan.service.Impl;
 
 import com.meituan.mapper.UserCodeMapper;
 import com.meituan.mapper.UserMapper;
-import com.meituan.model.DO.user.UserCodeDO;
-import com.meituan.model.DO.user.UserDO;
-import com.meituan.model.VO.user.UserLoginWithCodeReqVO;
-import com.meituan.model.VO.user.UserLoginWithPasswordReqVO;
+import com.meituan.model.Do.user.UserCodeDO;
+import com.meituan.model.Do.user.UserDO;
+import com.meituan.model.Vo.user.UserLoginWithCodeReqVO;
+import com.meituan.model.Vo.user.UserLoginWithPasswordReqVO;
 import com.meituan.service.UserService;
-import com.meituan.utils.BaseContext;
 import com.meituan.utils.ValidateCodeUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

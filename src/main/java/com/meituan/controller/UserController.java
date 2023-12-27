@@ -2,11 +2,10 @@ package com.meituan.controller;
 
 
 import com.meituan.mapper.UserMapper;
-import com.meituan.model.VO.user.UserLoginWithCodeReqVO;
-import com.meituan.model.VO.user.UserLoginWithPasswordReqVO;
+import com.meituan.model.Vo.user.UserLoginWithCodeReqVO;
+import com.meituan.model.Vo.user.UserLoginWithPasswordReqVO;
 import com.meituan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

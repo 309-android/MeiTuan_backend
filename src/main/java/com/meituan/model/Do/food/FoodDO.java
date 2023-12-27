@@ -1,4 +1,4 @@
-package com.meituan.model.DO.food;
+package com.meituan.model.Do.food;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

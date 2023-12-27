@@ -2,7 +2,7 @@ package com.meituan.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.meituan.model.DO.store.StoreDO;
+import com.meituan.model.Do.store.StoreDO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

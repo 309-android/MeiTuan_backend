@@ -1,6 +1,6 @@
 package com.meituan.controller;
 
-import com.meituan.model.DO.store.StoreDO;
+import com.meituan.model.Do.store.StoreDO;
 import com.meituan.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

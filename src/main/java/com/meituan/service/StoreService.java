@@ -1,9 +1,7 @@
 package com.meituan.service;
 
 
-import com.meituan.model.DO.store.StoreDO;
-import com.meituan.model.VO.user.UserLoginWithCodeReqVO;
-import com.meituan.model.VO.user.UserLoginWithPasswordReqVO;
+import com.meituan.model.Do.store.StoreDO;
 
 import java.util.List;
 

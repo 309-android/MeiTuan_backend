@@ -1,4 +1,4 @@
-package com.meituan.model.VO.address;
+package com.meituan.model.Vo.address;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

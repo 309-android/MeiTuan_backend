@@ -1,11 +1,8 @@
 package com.meituan.controller;
 
-import com.meituan.model.DO.order.OrderDO;
-import com.meituan.model.DO.store.StoreDO;
+import com.meituan.model.Do.order.OrderDO;
 import com.meituan.service.OrderService;
-import com.meituan.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

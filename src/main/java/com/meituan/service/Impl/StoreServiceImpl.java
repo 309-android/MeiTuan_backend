@@ -2,9 +2,7 @@ package com.meituan.service.Impl;
 
 
 import com.meituan.mapper.StoreMapper;
-import com.meituan.model.DO.store.StoreDO;
-import com.meituan.model.VO.user.UserLoginWithCodeReqVO;
-import com.meituan.model.VO.user.UserLoginWithPasswordReqVO;
+import com.meituan.model.Do.store.StoreDO;
 import com.meituan.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

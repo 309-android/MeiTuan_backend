@@ -1,26 +1,23 @@
 package com.meituan.service.Impl;
 
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.meituan.mapper.AddressMapper;
-import com.meituan.mapper.FoodMapper;
 import com.meituan.mapper.UserMapper;
-import com.meituan.model.DO.address.AddressDO;
-import com.meituan.model.DO.food.FoodDO;
-import com.meituan.model.DO.user.UserDO;
-import com.meituan.model.VO.address.UserAddAddressReqVO;
+import com.meituan.model.Do.address.AddressDO;
+import com.meituan.model.Do.user.UserDO;
+import com.meituan.model.Vo.address.UserAddAddressReqVO;
 import com.meituan.service.AddressService;
-import com.meituan.service.FoodService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 @Slf4j
-public class AddressServiceImpl implements AddressService {
+public class AddressServiceImpl extends ServiceImpl<AddressMapper,AddressDO> implements AddressService {
 
     @Autowired
     private AddressMapper addressMapper;

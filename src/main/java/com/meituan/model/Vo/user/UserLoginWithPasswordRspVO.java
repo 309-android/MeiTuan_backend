@@ -1,4 +1,4 @@
-package com.meituan.model.VO.user;
+package com.meituan.model.Vo.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserLoginWithPasswordReqVO {
+public class UserLoginWithPasswordRspVO {
 
     private String phoneNumber;
 

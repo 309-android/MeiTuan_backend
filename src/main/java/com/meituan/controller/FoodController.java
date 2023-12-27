@@ -1,6 +1,6 @@
 package com.meituan.controller;
 
-import com.meituan.model.DO.food.FoodDO;
+import com.meituan.model.Do.food.FoodDO;
 import com.meituan.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

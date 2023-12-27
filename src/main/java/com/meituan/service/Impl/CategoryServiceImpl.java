@@ -2,11 +2,8 @@ package com.meituan.service.Impl;
 
 
 import com.meituan.mapper.CategoryMapper;
-import com.meituan.mapper.FoodMapper;
-import com.meituan.model.DO.category.CategoryDO;
-import com.meituan.model.DO.food.FoodDO;
+import com.meituan.model.Do.category.CategoryDO;
 import com.meituan.service.CategoryService;
-import com.meituan.service.FoodService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

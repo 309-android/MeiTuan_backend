@@ -1,8 +1,8 @@
 package com.meituan.service;
 
 
-import com.meituan.model.VO.user.UserLoginWithCodeReqVO;
-import com.meituan.model.VO.user.UserLoginWithPasswordReqVO;
+import com.meituan.model.Vo.user.UserLoginWithCodeReqVO;
+import com.meituan.model.Vo.user.UserLoginWithPasswordReqVO;
 
 public interface UserService {
 

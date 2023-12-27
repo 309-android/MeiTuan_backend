@@ -1,4 +1,4 @@
-package com.meituan.model.DO.category;
+package com.meituan.model.Do.category;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;

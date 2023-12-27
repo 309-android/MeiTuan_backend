@@ -1,4 +1,4 @@
-package com.meituan.model.VO.user;
+package com.meituan.model.Vo.user;
 
 
 import lombok.AllArgsConstructor;

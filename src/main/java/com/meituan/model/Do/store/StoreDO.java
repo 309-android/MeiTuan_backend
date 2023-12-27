@@ -1,4 +1,4 @@
-package com.meituan.model.DO.store;
+package com.meituan.model.Do.store;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

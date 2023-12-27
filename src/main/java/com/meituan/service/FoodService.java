@@ -1,8 +1,7 @@
 package com.meituan.service;
 
 
-import com.meituan.model.DO.food.FoodDO;
-import com.meituan.model.DO.order.OrderDO;
+import com.meituan.model.Do.food.FoodDO;
 
 import java.util.List;
 

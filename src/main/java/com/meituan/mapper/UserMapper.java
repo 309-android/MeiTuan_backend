@@ -3,7 +3,7 @@ package com.meituan.mapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import com.meituan.model.DO.user.UserDO;
+import com.meituan.model.Do.user.UserDO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,10 +1,8 @@
 package com.meituan.controller;
 
-import com.meituan.model.DO.address.AddressDO;
-import com.meituan.model.DO.food.FoodDO;
-import com.meituan.model.VO.address.UserAddAddressReqVO;
+import com.meituan.model.Do.address.AddressDO;
+import com.meituan.model.Vo.address.UserAddAddressReqVO;
 import com.meituan.service.AddressService;
-import com.meituan.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

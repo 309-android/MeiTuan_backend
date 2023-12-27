@@ -1,15 +1,13 @@
 package com.meituan.service;
 
 
-import com.meituan.model.DO.address.AddressDO;
-import com.meituan.model.DO.food.FoodDO;
-import com.meituan.model.VO.address.UserAddAddressReqVO;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.meituan.model.Do.address.AddressDO;
+import com.meituan.model.Vo.address.UserAddAddressReqVO;
 
 import java.util.List;
 
-public interface AddressService {
+public interface AddressService extends IService<AddressDO> {
     /**
      * 用户新增地址
      * @param userAddAddressReqVO
