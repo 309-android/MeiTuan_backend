@@ -29,4 +29,12 @@ public class StoreController {
         return storeService.getById(storeId);
     }
 
+    /**
+     * 店铺模糊匹配
+     * @return
+     */
+    @PostMapping("/getByName")
+    public List<StoreDO> getByName(@RequestParam String searchMsg){
+        return storeService.getByName(searchMsg);
+    }
 }

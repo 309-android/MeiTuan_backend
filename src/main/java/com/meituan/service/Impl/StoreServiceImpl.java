@@ -1,6 +1,7 @@
 package com.meituan.service.Impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.meituan.mapper.StoreMapper;
 import com.meituan.model.Do.store.StoreDO;
 import com.meituan.service.StoreService;
@@ -33,5 +34,13 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public StoreDO getById(String storeId) {
         return storeMapper.selectById(storeId);
+    }
+
+    @Override
+    public List<StoreDO> getByName(String searchMsg) {
+        LambdaQueryWrapper<StoreDO> wrapper = new LambdaQueryWrapper<>();
+        wrapper.like(StoreDO::getStoreName,searchMsg);
+        List<StoreDO> storeDOS = storeMapper.selectList(wrapper);
+        return storeDOS;
     }
 }

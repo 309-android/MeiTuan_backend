@@ -20,4 +20,11 @@ public interface StoreService {
      * @return
      */
     StoreDO getById(String storeId);
+
+    /**
+     * 根据店铺名查询
+     * @param searchMsg
+     * @return
+     */
+    List<StoreDO> getByName(String searchMsg);
 }
