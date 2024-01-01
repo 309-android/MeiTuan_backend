@@ -20,6 +20,7 @@ public interface OrderMapper extends BaseMapper<OrderDO> {
         LambdaQueryWrapper<OrderDO> wrapper = new LambdaQueryWrapper<>();
 
         wrapper.eq(OrderDO::getUserId,userId);
+        wrapper.orderByDesc(OrderDO::getOrderTime);
 
         return selectList(wrapper);
     }

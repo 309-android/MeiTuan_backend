@@ -1,9 +1,11 @@
 package com.meituan.controller;
 
 import com.meituan.model.Do.order.OrderDO;
+import com.meituan.model.Vo.order.GenerateOrderReqVO;
 import com.meituan.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +26,15 @@ public class OrderController {
     @PostMapping("/getAllOrders")
     public List<List<OrderDO>> getAllOrders(String phoneNumber){
         return orderService.getAllOrders(phoneNumber);
+    }
+
+    /**
+     * 生成订单
+     * @param generateOrderReqVO
+     * @return
+     */
+    @PostMapping("/generateOrder")
+    public String generateOrder(@RequestBody GenerateOrderReqVO generateOrderReqVO){
+        return orderService.generateOrder(generateOrderReqVO);
     }
 }

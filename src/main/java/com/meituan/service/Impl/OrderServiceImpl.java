@@ -7,12 +7,16 @@ import com.meituan.mapper.StoreMapper;
 import com.meituan.mapper.UserMapper;
 import com.meituan.model.Do.food.FoodDO;
 import com.meituan.model.Do.order.OrderDO;
+import com.meituan.model.Do.store.StoreDO;
 import com.meituan.model.Do.user.UserDO;
+import com.meituan.model.Vo.order.GenerateOrderReqVO;
 import com.meituan.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -75,5 +79,57 @@ public class OrderServiceImpl implements OrderService {
         }
 
         return null;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public String generateOrder(GenerateOrderReqVO generateOrderReqVO) {
+        if (generateOrderReqVO == null){
+            return "未知错误";
+        }
+        Integer storeId = generateOrderReqVO.getStoreId();
+        StoreDO storeDO = storeMapper.selectById(storeId);
+        String deliveryNum = storeDO.getDeliveryNum();
+        Double delivery = Double.parseDouble(deliveryNum);
+        Integer[] ids = generateOrderReqVO.getIds();
+        String phoneNumber = generateOrderReqVO.getPhoneNumber();
+        UserDO userDO = userMapper.queryByPhoneNumber(phoneNumber);
+        if (userDO == null){
+            return "未知错误";
+        }
+        // 以系统当前毫秒值生成订单号
+        String orderCode = String.valueOf(System.currentTimeMillis());
+        for (int i = 0; i < ids.length; i++) {
+            if (i == 0){
+                FoodDO foodDO = foodMapper.selectById(ids[0]);
+                // 组装order
+                OrderDO order = OrderDO.builder()
+                        .orderAmount(String.valueOf(Double.parseDouble(foodDO.getFoodAmount())+ delivery))
+                        .orderTime(LocalDateTime.now())
+                        .code(orderCode)
+                        .status("0")
+                        .foodId(foodDO.getId())
+                        .storeId(foodDO.getStoreId())
+                        .userId(userDO.getId())
+                        .build();
+
+                orderMapper.insert(order);
+                continue;
+            }
+            FoodDO foodDO = foodMapper.selectById(ids[i]);
+            // 组装order
+            OrderDO order = OrderDO.builder()
+                    .orderAmount(foodDO.getFoodAmount())
+                    .orderTime(LocalDateTime.now())
+                    .code(orderCode)
+                    .status("0")
+                    .foodId(foodDO.getId())
+                    .storeId(foodDO.getStoreId())
+                    .userId(userDO.getId())
+                    .build();
+
+            orderMapper.insert(order);
+        }
+        return "下单成功";
     }
 }
