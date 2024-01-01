@@ -25,4 +25,5 @@ public interface AddressService extends IService<AddressDO> {
 
      String updateDefaultAddress(AddressDO addressDO);
 
+    AddressDO getDefault(String phoneNumber);
 }

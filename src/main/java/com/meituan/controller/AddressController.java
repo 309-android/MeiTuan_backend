@@ -27,6 +27,11 @@ public class AddressController {
         return addressService.getAll(phoneNumber);
     }
 
+    @PostMapping("/getDefault")
+    public AddressDO getDefault(String phoneNumber){
+        return addressService.getDefault(phoneNumber);
+    }
+
     @PostMapping("/setDefault")
     public String updateDefaultAddress(@RequestBody AddressDO addressDO){
         return addressService.updateDefaultAddress(addressDO);

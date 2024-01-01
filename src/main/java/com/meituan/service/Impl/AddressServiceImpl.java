@@ -1,6 +1,7 @@
 package com.meituan.service.Impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.meituan.mapper.AddressMapper;
 import com.meituan.mapper.UserMapper;
@@ -90,5 +91,18 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper,AddressDO> imp
             return "success";
         }
         return "error";
+    }
+
+    @Override
+    public AddressDO getDefault(String phoneNumber) {
+        UserDO userDO = userMapper.queryByPhoneNumber(phoneNumber);
+        if (userDO == null){
+            return null;
+        }
+        LambdaQueryWrapper<AddressDO> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(AddressDO::getUserId,userDO.getId()).eq(AddressDO::getIsDefault,"1");
+        AddressDO addressDO = addressMapper.selectOne(wrapper);
+
+        return addressDO;
     }
 }
