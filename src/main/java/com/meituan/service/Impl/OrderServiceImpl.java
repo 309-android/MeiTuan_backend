@@ -17,9 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -55,7 +53,8 @@ public class OrderServiceImpl implements OrderService {
             // 所有与此用户有关的订单
             List<OrderDO> orderDOS = orderMapper.queryByUserId(userId);
 
-            HashSet<String> codes = new HashSet<>();
+            Comparator<String> reverseComparator = Comparator.reverseOrder();
+            TreeSet<String> codes = new TreeSet<>(reverseComparator);
 
             // 获得所有订单编号 获取所有店铺id
             for (OrderDO orderDO : orderDOS) {

@@ -19,8 +19,7 @@ public interface OrderMapper extends BaseMapper<OrderDO> {
         // 构造查询条件
         LambdaQueryWrapper<OrderDO> wrapper = new LambdaQueryWrapper<>();
 
-        wrapper.eq(OrderDO::getUserId,userId);
-        wrapper.orderByDesc(OrderDO::getOrderTime);
+        wrapper.eq(OrderDO::getUserId,userId).orderByDesc(OrderDO::getId).orderByDesc(OrderDO::getCode);
 
         return selectList(wrapper);
     }
@@ -34,8 +33,7 @@ public interface OrderMapper extends BaseMapper<OrderDO> {
         // 构造查询条件
         LambdaQueryWrapper<OrderDO> wrapper = new LambdaQueryWrapper<>();
 
-        wrapper.eq(OrderDO::getUserId,userId);
-        wrapper.eq(OrderDO::getCode,code);
+        wrapper.eq(OrderDO::getUserId,userId).eq(OrderDO::getCode,code).orderByDesc(OrderDO::getId).orderByDesc(OrderDO::getCode);
 
         return selectList(wrapper);
 
