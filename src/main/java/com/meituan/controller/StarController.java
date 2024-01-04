@@ -1,12 +1,12 @@
 package com.meituan.controller;
 
+import com.meituan.model.Do.store.StoreDO;
 import com.meituan.model.Vo.star.NewStarVO;
 import com.meituan.service.StarService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/star")
@@ -23,6 +23,11 @@ public class StarController {
     @PostMapping("/isStarred")
     public String isStarred(@RequestBody NewStarVO newStarVO){
         return starService.isStarred(newStarVO);
+    }
+
+    @PostMapping("/getAll")
+    public List<StoreDO> getAll(@RequestParam String phoneNumber){
+        return starService.getAll(phoneNumber);
     }
 
 }
